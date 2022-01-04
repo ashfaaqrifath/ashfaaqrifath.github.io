@@ -5,7 +5,7 @@ This is my personal image hosting site built for my portfolio website to reduce 
 
 ## Coded by💻
 
-- [@ashfaaqrifath](https://ashfaaq.epizy.com/)
+- [ashfaaqrifath](https://github.com/ashfaaqrifath/)
 
 ## Links🔗
 
