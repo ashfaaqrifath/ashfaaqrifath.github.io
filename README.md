@@ -7,9 +7,10 @@ This is my personal image hosting site built for my portfolio website to reduce 
 
 - [@ashfaaqrifath](https://ashfaaq.epizy.com/)
 
-## Links
+## Links🔗
 
-- (https://ashfaaq.epizy.com/)
+- (https://ashfaaq.epizy.com)
+- (https://ashfaaqrifath.github.io)
 
 
 ## Badges
