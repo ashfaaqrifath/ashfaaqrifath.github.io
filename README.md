@@ -1,15 +1,13 @@
 # Project Depiction
 
-This is my personal image hosting site built for my portfolio website to reduce the space taken by images from the web hosting. This site is hosted on Github. This is a work in progress project.
+Personal test website built with HTML and CSS
 
-
-## Coded by💻
+## Author💻
 
 - [ashfaaqrifath](https://github.com/ashfaaqrifath/)
 
 ## Links🔗
 
-- (https://ashfaaq.epizy.com)
 - (https://ashfaaqrifath.github.io)
 
 
