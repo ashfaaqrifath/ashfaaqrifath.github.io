@@ -1,6 +1,6 @@
-# Image Hosting HTML,CSS
+# Image Hosting Site
 
-Personal test website built with HTML and CSS
+Website built with html and css for image hosting purposes.
 
 ## Author💻
 
@@ -21,6 +21,6 @@ Personal test website built with HTML and CSS
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
-Copyright © 2022 Ashfaaq Rifath - Image Hosting
+Copyright © 2022 Ashfaaq Rifath - Image Hosting Site
 ##
 ![Logo](https://ashfaaqrifath.github.io/aq%20logo2.png)
