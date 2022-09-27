@@ -2,11 +2,18 @@ h1{
     font-size: 50px;
     color: white;
     font-family:Arial;
+    text-decoration: underline overline;
+    text-decoration-color: yellow;
 }
+
 h4{
+    font-family:Arial;
     color: yellow;
     border: red;
+    border: 10px;
+    border-radius: 5px;
 }
+
 img{
     border-radius: 20px;
 }
