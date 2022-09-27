@@ -23,4 +23,4 @@ Website built with html and css for image hosting purposes.
 
 Copyright © 2022 Ashfaaq Rifath - ImageHost
 ##
-![Logo](https://ashfaaqrifath.github.io/aq%20logo2.png)
+![Logo](https://ashfaaqrifath.github.io/aqlogo11.png)
