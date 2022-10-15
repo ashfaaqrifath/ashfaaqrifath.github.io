@@ -13,6 +13,10 @@
             <h1>ImageHost</h1>
         </center>
 
+        <marquee attribute_name = "attribute_value"....more attributes>
+            One or more lines or text message. html5 does not  support this tag anymore.
+        </marquee>
+
         <h4><a href="https://github.com/ashfaaqrifath", target="_blank">This site is hosted on Github</a></h4>
 
         <ul>
@@ -29,7 +33,7 @@
             <li>Ashfaaq Rifath</li>
         </ol>
 
-        <hr>
+        <hr style="width: 1000px">
 
         <dl>
             <dt>GitHub</dt>
@@ -41,7 +45,9 @@
             <dt>Casper</dt>
             <dd>Desktop Assistant</dd>
 
-        <table>
+        <hr style="width: 1500px">
+
+        <table style="width: 5px">
             <caption>Test table</caption>
             <tr>
                 <th>Name</th>
@@ -60,7 +66,7 @@
                 <td>Desktop Assistant</td>
                 <td>casper_lbot
         </table>
-
+        <br>
 
         <td>
             <img src="aqlogo1.png" height="250" widht="250">
@@ -75,11 +81,111 @@
             <img src="aqlogo10.png" height="250" widht="250">
             <a href="https://github.com/ashfaaqrifath/ashfaaqrifath.github.io", target="_blank"><img src="aqlogo11.png" height="250" widht="250"></a>
         </td>
+        <hr>
 
-        <h4><a href="ashfaaq.rifath2@gmail.com">Send an email</a>
+        <table style="width: 5px">
+            <caption>Test table</caption>
+            <tr>
+                <th colspan="2">Name</th>
+                <th>Title</th>
+                <th>Alias</th>
+            </tr>
 
-        <video controls>
-            <source src="aqlogovid.mp4" type="video/mp4"> 
-        </video>
+            <tr>
+                <td>Ashfaaq</td>
+                <td>Pythonista</td>
+                <td>Rachinter</td>
+            </td>
+
+            <tr>
+                <td>Jill</td>
+                <td rowspan="4">Smith</td>
+                <td>43</td>
+            </tr>
+
+            <tr>
+                <td>Casper</td>
+                <td>Desktop Assistant</td>
+                <td>casper_lbot</td>
+        </table>
+
+        <hr>
+        <h2>HTML Forms practice</h2>
+
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="Jobby"><br>
+            <br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Nuyers"><br>
+        </form>
+        <br>
+
+        <center><form>
+            <label>Username:</label>
+            <input type="text" value="@"><br>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass">
+        </center></form>
+        <br>
+
+        <center><form>
+            <input type="radio" id="python" value="python">
+            <label for="python">Python</label><br>
+            <input type="radio" id="html" value="html">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="python" value="python" checked>
+            <label for="python">Python</label><br>
+            <input type="radio" id="html" value="html">
+            <label for="html">HTML</label><br>
+        </center></form>
+        <br>
+
+        <form action="ball.php">
+            <label for="phone">Phone number:</label>
+            <input type="number" id="phone" name="phone"><br>
+            <br>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date"><br>
+            <input type="submit">
+            <input type="reset">
+        </form>
+        <br>
+
+        <p>
+            On July 16, 1969, the <b>Apollo</b> 11 spacecraft <i>launched</i> from the Kennedy Space Center in Florida..
+        </p>
+        <br>
+
+        <center><form>
+            <input type="button" onclick="alert('what up boy boy')" value="click me right now">
+            <br>
+            <textarea id="txt" name="txt" rows="5" cols="50">
+        write something in this area. resizing is disabled.</textarea>
+        </form></center>
+        <hr>
+
+        <form>
+            <label for="model">What phone:</label>
+            <select name="model" id="model">
+                <option value="samsung">Samsung</option>
+                <option value="nothing">Nothing</option>
+                <option value="oneplus">OnePlus</option>
+                <option value="samsung">Nokia</option>
+                <option value="nothing">Google Pixel</option>
+                <option value="oneplus">ROG</option>
+            </select>
+        </form>
+        <br>
+
+        <form>
+            <fieldset>
+                <legend>This is a practice</legend>
+                Name:<input type="text"><br>
+                Title:<input type="text"><br>
+                Phone:<input type="number"><br>
+                Password:<input type="password"><br>
+                <input type="reset">
+            </fieldset>
 
 </body>
