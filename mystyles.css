@@ -36,3 +36,17 @@ img{
 textarea{
     resize: none;
 }
+
+a:link{
+    color:blueviolet;
+    text-decoration: underline;
+}
+a:visited{
+    color: darkgreen;
+}
+a:hover{
+    color: yellowgreen;
+}
+a:active{
+    color: peru;
+}
