@@ -1,6 +1,6 @@
-# ImageHost
+# GitHub pages site
 
-Website built with html and css for image hosting purposes.
+Website built with html and css.
 
 ## Author💻
 
@@ -21,6 +21,6 @@ Website built with html and css for image hosting purposes.
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
-Copyright © 2022 Ashfaaq Rifath - ImageHost
+Copyright © 2022 Ashfaaq Rifath
 ##
 ![Logo](https://ashfaaqrifath.github.io/aqlogo11.png)
