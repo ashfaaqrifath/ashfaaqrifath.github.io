@@ -1,6 +1,6 @@
-# GitHub pages site
+# My Personal Portfolio Website
 
-Website built with html and css.
+My personal portfolio website. Built using open source code.
 
 ## Author💻
 
@@ -21,6 +21,6 @@ Website built with html and css.
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
-Copyright © 2022 Ashfaaq Rifath
+Copyright © 2023 Ashfaaq Rifath
 ##
 ![Logo](https://ashfaaqrifath.github.io/aqlogo11.png)
