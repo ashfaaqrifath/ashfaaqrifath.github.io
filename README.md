@@ -17,7 +17,6 @@ My personal portfolio website. Built using open source code.
 ![MIT License](https://img.shields.io/github/stars/ashfaaqrifath/ashfaaqrifath.github.io?style=social)
 
 
-
 Copyright © 2023 Ashfaaq Rifath
 ##
 ![Logo](https://ashfaaqrifath.github.io/aqlogo11.png)
