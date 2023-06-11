@@ -19,4 +19,4 @@ My personal portfolio website. Built using open source code. HTML, CSS, JavaScri
 
 Copyright © 2023 Ashfaaq Rifath
 ##
-![Logo](https://ashfaaqrifath.github.io/aqlogo11.png)
+![Logo](https://ashfaaqrifath.github.io/assets/images/mylogo9.png)
