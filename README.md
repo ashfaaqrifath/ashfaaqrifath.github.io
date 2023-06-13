@@ -1,6 +1,6 @@
-# My Personal Portfolio Website
+# My Portfolio Website
 
-My portfolio website. Built using open source code. HTML, CSS, JavaScript
+My personal portfolio website. Built using open source code. HTML, CSS, JavaScript
 
 ## 💻Author
 
