@@ -11,6 +11,14 @@ My portfolio website. Built using open source code. HTML, CSS, JavaScript
 - Live site - https://ashfaaqrifath.github.io
 
 
+## Preview
+<h6>
+  <a href="https://ashfaaqrifath.github.io">
+    <img src="https://ashfaaqrifath.github.io/assets/images/Screenshot (261).png" alt="Demo" style="border-radius: 20px;">
+  </a>
+</h6>
+
+
 ##
 
 ![MIT License](https://img.shields.io/github/followers/ashfaaqrifath?style=social)
