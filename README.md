@@ -2,16 +2,16 @@
 
 My portfolio website. Built using open source code. HTML, CSS, JavaScript
 
-## Author💻
+## 💻Author
 
 - [ashfaaqrifath](https://github.com/ashfaaqrifath/)
 
-## Links🔗
+## 🔗Links
 
 - Live site - https://ashfaaqrifath.github.io
 
 
-## Preview
+## 📷Preview
 <h6>
   <a href="https://ashfaaqrifath.github.io">
     <img src="https://ashfaaqrifath.github.io/assets/images/Screenshot (261).png" alt="Demo" style="border-radius: 20px;">
