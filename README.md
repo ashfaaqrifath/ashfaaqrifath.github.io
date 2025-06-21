@@ -1,10 +1,7 @@
 # My Portfolio Website
 
-My personal portfolio website. Built using open source code. HTML, CSS, JavaScript
+My personal portfolio website. Made with HTML, CSS, JavaScript
 
-## 💻Author
-
-- [ashfaaqrifath](https://github.com/ashfaaqrifath/)
 
 ## 🔗Links
 
