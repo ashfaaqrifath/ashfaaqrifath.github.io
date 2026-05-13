@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ashfaaqrifath.github.io/sitemap.xml
