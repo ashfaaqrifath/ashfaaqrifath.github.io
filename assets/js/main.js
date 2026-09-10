@@ -131,6 +131,11 @@
       '<title>GitHub</title>' +
       '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>' +
       '</svg>';
+    var folderIcon =
+      '<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' +
+      '<title>Folder</title>' +
+      '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>' +
+      '</svg>';
     var externalIcon =
       '<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
       '<title>External Link</title>' +
@@ -164,7 +169,15 @@
     var modalDescription = projectModal.querySelector('.project-modal-description');
     var modalTechList = projectModal.querySelector('.project-modal-tech-list');
     var modalLinks = projectModal.querySelector('.project-modal-links');
+    var modalImage = projectModal.querySelector('.project-modal-image img');
     var modalClose = projectModal.querySelector('.project-modal-close');
+    var fallbackProjectImage = 'assets/images/project-6.png';
+
+    modalImage.addEventListener('error', function () {
+      if (modalImage.src.indexOf(fallbackProjectImage) === -1) {
+        modalImage.src = fallbackProjectImage;
+      }
+    });
 
     function makeProjectLink(href, label, className, icon) {
       var link = document.createElement('a');
@@ -259,6 +272,11 @@
       modalDescription.innerHTML = description.innerHTML;
       modalTechList.innerHTML = techList ? techList.innerHTML : '';
       modalLinks.innerHTML = links ? links.innerHTML : '';
+      modalLinks.querySelectorAll('a').forEach(function (link) {
+        link.innerHTML = externalIcon;
+      });
+      modalImage.src = card.dataset.projectImage || fallbackProjectImage;
+      modalImage.alt = modalTitle.textContent + ' preview';
       projectModal.classList.add('open');
       projectModal.setAttribute('aria-hidden', 'false');
       modalClose.focus();
@@ -299,6 +317,148 @@
         closeProjectModal();
       }
     });
+
+    function bindProjectCard(card) {
+      var inner = card.querySelector('.project-inner');
+      if (!inner) return;
+
+      inner.setAttribute('role', 'button');
+      inner.setAttribute('tabindex', '0');
+      inner.setAttribute('aria-label', 'View project details');
+
+      card.addEventListener('click', function (event) {
+        if (event.target.closest('.project-links a')) return;
+        event.preventDefault();
+        openProjectModal(card);
+      });
+
+      inner.addEventListener('keydown', function (event) {
+        if (event.target.closest('a')) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openProjectModal(card);
+        }
+      });
+    }
+
+    function createRepositoryCard(repository) {
+      var card = document.createElement('li');
+      var previewImage = 'https://opengraph.githubassets.com/1/' + repository.full_name;
+      card.className = 'project-card';
+      card.dataset.projectImage = previewImage;
+      card.innerHTML =
+        '<div class="project-inner">' +
+        '<header>' +
+        '<div class="project-top">' +
+        '<div class="folder">' + folderIcon + '</div>' +
+        '<div class="project-links">' +
+        '<a href="' + repository.html_url + '" target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">' + githubIcon + '</a>' +
+        '</div>' +
+        '</div>' +
+        '<h3 class="project-title"><a href="' + repository.html_url + '" target="_blank" rel="noopener noreferrer">' +
+        repository.name +
+        '</a></h3>' +
+        '<div class="project-description"><p></p></div>' +
+        '</header>' +
+        '<footer><ul class="project-tech-list"></ul></footer>' +
+        '</div>';
+
+      var description = card.querySelector('.project-description p');
+      var techList = card.querySelector('.project-tech-list');
+      description.textContent = repository.description || 'No description provided.';
+
+      [repository.language].concat(repository.topics || []).filter(Boolean).slice(0, 4).forEach(function (item) {
+        var technology = document.createElement('li');
+        technology.textContent = item;
+        techList.appendChild(technology);
+      });
+
+      bindProjectCard(card);
+      return card;
+    }
+
+    function getGitHubRepositoryUrl(card) {
+      var githubLink = Array.from(card.querySelectorAll('a')).find(function (link) {
+        return (link.href || '').indexOf('github.com/') !== -1;
+      });
+      return githubLink ? githubLink.href.replace(/\/$/, '') : '';
+    }
+
+    function updateProjectTags(list, repository) {
+      if (!list) return;
+      list.innerHTML = '';
+      [repository.language].concat(repository.topics || []).filter(Boolean).slice(0, 5).forEach(function (item) {
+        var tag = document.createElement('li');
+        tag.textContent = item;
+        list.appendChild(tag);
+      });
+    }
+
+    function hydrateFeaturedProject(card) {
+      var repositoryUrl = getGitHubRepositoryUrl(card);
+      var repositoryMatch = repositoryUrl.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)$/i);
+      if (!repositoryMatch) return;
+
+      fetch('https://api.github.com/repos/' + repositoryMatch[1] + '/' + repositoryMatch[2])
+        .then(function (response) {
+          if (!response.ok) throw new Error('GitHub project request failed');
+          return response.json();
+        })
+        .then(function (repository) {
+          var titleLink = card.querySelector('.project-title a');
+          var description = card.querySelector('.project-description p');
+          var image = card.querySelector('.project-image img');
+          var imageLink = card.querySelector('.project-image a');
+          var tags = card.querySelector('.project-tech-list');
+          var previewImage = 'https://opengraph.githubassets.com/1/' + repository.full_name;
+
+          if (titleLink) titleLink.textContent = repository.name;
+          if (description) description.textContent = repository.description || 'No description provided.';
+          updateProjectTags(tags, repository);
+          if (image) {
+            image.src = previewImage;
+            image.alt = repository.name + ' preview';
+            image.onerror = function () {
+              image.onerror = null;
+              image.src = fallbackProjectImage;
+            };
+          }
+          if (imageLink) imageLink.href = repository.html_url;
+          card.dataset.projectImage = previewImage;
+        })
+        .catch(function () {
+          card.setAttribute('data-repository-error', 'true');
+        });
+    }
+
+    document.querySelectorAll('.featured-project').forEach(hydrateFeaturedProject);
+
+    var repositorySection = document.querySelector('[data-github-repositories]');
+    var repositoryList = repositorySection ? repositorySection.querySelector('[data-repository-list]') : null;
+    if (repositoryList) {
+      fetch('https://api.github.com/users/ashfaaqrifath/repos?per_page=100&sort=updated')
+        .then(function (response) {
+          if (!response.ok) throw new Error('GitHub repository request failed');
+          return response.json();
+        })
+        .then(function (repositories) {
+          var publicRepositories = repositories.filter(function (repository) {
+            return !repository.fork;
+          });
+
+          if (!publicRepositories.length) return;
+
+          repositoryList.innerHTML = '';
+          publicRepositories.forEach(function (repository) {
+            repositoryList.appendChild(createRepositoryCard(repository));
+          });
+          repositorySection.classList.remove('show-all');
+          if (moreButton) moreButton.textContent = 'Show More';
+        })
+        .catch(function () {
+          repositorySection.setAttribute('data-repository-error', 'true');
+        });
+    }
   }
 
   var galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
